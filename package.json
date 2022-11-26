@@ -33,7 +33,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*.{js,ts,jsx,tsx}' --quiet --fix"
+    "lint": "eslint 'src/**/*.{js,ts,jsx,tsx}' --quiet --fix",
+    "testWithCoverage": "react-scripts test --env=jsdom  --coverage --coverageDirectory=./unit-tests-results/coverage/jest \"-u\" "
   },
   "eslintConfig": {
     "extends": [
@@ -61,5 +62,24 @@
     "eslint-plugin-jest": "^27.1.6",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/*.{js,ts}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "functions": 85,
+        "lines": 85,
+        "statements": 85
+      }
+    },
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ]
   }
 }
