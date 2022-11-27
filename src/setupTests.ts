@@ -22,7 +22,6 @@ class LocalStorage {
     clear = () => (this.store = {});
 }
 
-
 // for tests, use the above defined mock LocalStorage class
 Object.defineProperty(window, 'localStorage', {
     value: new LocalStorage(),
