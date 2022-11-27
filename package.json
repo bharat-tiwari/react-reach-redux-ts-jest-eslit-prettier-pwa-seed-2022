@@ -62,6 +62,8 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^27.1.6",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.4",
     "prettier": "^2.8.0"
   },
   "jest": {
@@ -82,5 +84,16 @@
       "lcov",
       "html"
     ]
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "yarn run lint",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
